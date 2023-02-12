@@ -56,7 +56,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -97,8 +103,33 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "sweeties-website:build:production",
+            "firebaseProject": "sweeties672-4f600",
+            "firebaseHostingSite": "sweeties672-4f600"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "f681d2ce-1d4c-4d89-a963-b071fac664da",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
