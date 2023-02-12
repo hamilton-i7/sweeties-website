@@ -1,0 +1,37 @@
+$light-theme-map: (
+  "primary": #484fcb,
+  "on-primary": #ffffff,
+  "primary-container": #dfe0ff,
+  "on-primary-container": #00006f,
+  "secondary": #205fa9,
+  "on-secondary": #ffffff,
+  "secondary-container": #d4e3ff,
+  "on-secondary-container": #001b3d,
+  "tertiary": #90427a,
+  "on-tertiary": #ffffff,
+  "tertiary-container": #ffd7ef,
+  "on-tertiary-container": #3b0030,
+  "error": #ba1b1b,
+  "on-error": #ffffff,
+  "error-container": #ffdad4,
+  "on-error-container": #410001,
+  "background": #fbf6f7,
+  "on-background": #1d1b1e,
+  "surface": #fffbfc,
+  "on-surface": #1d1b1e,
+  "surface-variant": #e4e1ec,
+  "on-surface-variant": #46464f,
+  "outline": #777680,
+  "inverse-on-surface": #f5eff3,
+  "inverse-surface": #323033,
+  "inverse-primary": #bec2ff,
+);
+
+@function theme-get($key) {
+  @return map-get($map: $light-theme-map, $key: $key);
+}
+
+app-root.theme-light {
+  background-color: theme-get("background");
+  color: theme-get("on-background");
+}
