@@ -1,0 +1,23 @@
+@use "../../../../../sass/abstracts/variables" as v;
+@use "../../../../../sass/base/typography";
+
+.hero {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  padding: v.$toolbar-height 1.6rem 0;
+
+  &__text-container {
+    text-align: center;
+  }
+
+  &__title {
+    @extend %display-l;
+  }
+
+  &__description {
+    @extend %body-l;
+    margin-bottom: 4rem;
+  }
+}
