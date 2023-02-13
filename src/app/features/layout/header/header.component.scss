@@ -1,9 +1,10 @@
+@use "../../../../sass/abstracts/variables" as v;
 @use "../../../../sass/base/typography";
 
 .nav {
   align-items: center;
   display: flex;
-  height: 6.4rem;
+  height: v.$toolbar-height;
   justify-content: space-between;
   padding: 0 1.6rem;
   position: fixed;
@@ -22,33 +23,6 @@
   }
 
   &__logo {
-    width: 2.4rem;
-  }
-
-  &__mobile-menu-button {
-    align-items: center;
-    background: none;
-    border: 0;
-    display: flex;
-    height: 4.8rem;
-    justify-content: center;
-    outline: none;
-    padding: 0;
-    width: 4.8rem;
-
-    & .state-layer {
-      align-items: center;
-      border-radius: 50%;
-      display: flex;
-      height: 4rem;
-      justify-content: center;
-      transition: background-color 200ms ease-in-out;
-      width: 4rem;
-    }
-  }
-
-  &__mobile-menu-icon {
-    height: 2.4rem;
     width: 2.4rem;
   }
 }

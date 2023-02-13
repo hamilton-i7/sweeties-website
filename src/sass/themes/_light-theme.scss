@@ -52,30 +52,80 @@ app-header {
     &__logo-container:active {
       color: theme-get("primary");
     }
+  }
+}
 
-    &__mobile-menu-button:hover .state-layer {
+app-icon-button {
+  & .button--icon {
+    &:hover .state-layer {
       background-color: rgba(
         $color: theme-get("on-surface-variant"),
         $alpha: 0.08
       );
     }
 
-    &__mobile-menu-button:focus .state-layer {
+    &:focus .state-layer {
       background-color: rgba(
         $color: theme-get("on-surface-variant"),
         $alpha: 0.12
       );
     }
 
-    &__mobile-menu-button:active .state-layer {
+    &:active .state-layer {
       background-color: rgba(
         $color: theme-get("on-surface-variant"),
         $alpha: 0.16
       );
     }
 
-    &__mobile-menu-icon {
+    & svg {
       fill: theme-get("on-surface-variant");
+    }
+  }
+}
+
+app-filled-button {
+  & .button--filled {
+    background-color: theme-get("primary");
+    box-shadow: none;
+    color: theme-get("on-primary");
+    position: relative;
+
+    &:hover {
+      box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.12),
+        0 0.1rem 0.2rem rgba(0, 0, 0, 0.24);
+    }
+
+    &:focus,
+    &:active {
+      box-shadow: none;
+    }
+
+    &:hover::after,
+    &:focus::after,
+    &:active::after {
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    &:hover::after {
+      background-color: rgba($color: theme-get("background"), $alpha: 0.08);
+    }
+
+    &:focus::after {
+      background-color: rgba($color: theme-get("background"), $alpha: 0.12);
+    }
+
+    &:active::after {
+      background-color: rgba($color: theme-get("background"), $alpha: 0.16);
+    }
+
+    & > svg {
+      fill: theme-get("on-primary");
     }
   }
 }

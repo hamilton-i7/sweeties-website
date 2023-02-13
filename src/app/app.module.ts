@@ -14,6 +14,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { FeaturesModule } from './features/features.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShareModule } from './share/share.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     provideFirestore(() => getFirestore()),
     FeaturesModule,
     BrowserAnimationsModule,
+    ShareModule,
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
