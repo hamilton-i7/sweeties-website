@@ -140,3 +140,15 @@ app-benefits {
     background-color: rgba($color: theme-get("on-primary"), $alpha: 0.62);
   }
 }
+
+app-products {
+  & .products__list-item:nth-child(odd) .card {
+    background-color: theme-get("secondary");
+    color: theme-get("on-secondary");
+  }
+
+  & .products__list-item:nth-child(even) .card {
+    background-color: theme-get("tertiary");
+    color: theme-get("on-tertiary");
+  }
+}
