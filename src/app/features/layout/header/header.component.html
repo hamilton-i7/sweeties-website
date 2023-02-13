@@ -1,0 +1,38 @@
+<nav class="nav">
+  <a href="/" class="nav__logo-container">
+    <img
+      src="../../../../assets/logo-simple.svg"
+      alt="Sweeties672 logo"
+      class="nav__logo"
+    />
+    Sweeties672
+  </a>
+
+  <button
+    type="button"
+    class="nav__mobile-menu-button"
+    *ngIf="showMobileNav$ | async; else navLinks"
+  >
+    <span class="state-layer">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="nav__mobile-menu-icon"
+      >
+        <path
+          d="M4 18H20C20.55 18 21 17.55 21 17C21 16.45 20.55 16 20 16H4C3.45 16 3 16.45 3 17C3 17.55 3.45 18 4 18ZM4 13H20C20.55 13 21 12.55 21 12C21 11.45 20.55 11 20 11H4C3.45 11 3 11.45 3 12C3 12.55 3.45 13 4 13ZM3 7C3 7.55 3.45 8 4 8H20C20.55 8 21 7.55 21 7C21 6.45 20.55 6 20 6H4C3.45 6 3 6.45 3 7Z"
+        />
+      </svg>
+    </span>
+  </button>
+
+  <ng-template #navLinks>
+    <div class="nav__links-container">
+      <a href="/productos">Productos</a>
+      <a href="/comprar-ahora">Comprar ahora</a>
+    </div>
+  </ng-template>
+</nav>

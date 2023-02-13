@@ -31,7 +31,51 @@ $light-theme-map: (
   @return map-get($map: $light-theme-map, $key: $key);
 }
 
-app-root.theme-light {
+app-root {
   background-color: theme-get("background");
   color: theme-get("on-background");
+}
+
+app-header {
+  & .nav {
+    &__logo-container,
+    &__logo-container:visited {
+      color: theme-get("on-background");
+    }
+
+    &__logo-container:focus {
+      outline: none;
+    }
+
+    &__logo-container:hover,
+    &__logo-container:focus,
+    &__logo-container:active {
+      color: theme-get("primary");
+    }
+
+    &__mobile-menu-button:hover .state-layer {
+      background-color: rgba(
+        $color: theme-get("on-surface-variant"),
+        $alpha: 0.08
+      );
+    }
+
+    &__mobile-menu-button:focus .state-layer {
+      background-color: rgba(
+        $color: theme-get("on-surface-variant"),
+        $alpha: 0.12
+      );
+    }
+
+    &__mobile-menu-button:active .state-layer {
+      background-color: rgba(
+        $color: theme-get("on-surface-variant"),
+        $alpha: 0.16
+      );
+    }
+
+    &__mobile-menu-icon {
+      fill: theme-get("on-surface-variant");
+    }
+  }
 }

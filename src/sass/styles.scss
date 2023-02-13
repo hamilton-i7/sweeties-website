@@ -3,5 +3,7 @@
 @use "./themes/light-theme";
 
 app-root {
-  min-height: 100vh;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
