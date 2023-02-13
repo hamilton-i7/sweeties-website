@@ -25,6 +25,7 @@ $light-theme-map: (
   "inverse-on-surface": #f5eff3,
   "inverse-surface": #323033,
   "inverse-primary": #bec2ff,
+  "inverse-on-primary": #0f129e,
 );
 
 @function theme-get($key) {
@@ -84,11 +85,23 @@ app-icon-button {
   }
 }
 
+app-filled-link,
 app-filled-button {
-  & .button--filled {
+  & .link-filled--light,
+  & .button-filled--light {
     background-color: theme-get("primary");
-    box-shadow: none;
     color: theme-get("on-primary");
+  }
+
+  & .link-filled--dark,
+  & .button-filled--dark {
+    background-color: theme-get("inverse-primary");
+    color: theme-get("inverse-on-primary");
+  }
+
+  & .link-filled,
+  & .button-filled {
+    box-shadow: none;
     position: relative;
 
     &:hover {
@@ -150,5 +163,35 @@ app-products {
   & .products__list-item:nth-child(even) .card {
     background-color: theme-get("tertiary");
     color: theme-get("on-tertiary");
+  }
+}
+
+app-footer {
+  & .footer {
+    $footer-background-color: #1d1b1e;
+    $opacity-color: rgba(
+      $color: #bec2ff,
+      $alpha: 0.14,
+    );
+
+    background: linear-gradient($opacity-color, $opacity-color),
+      linear-gradient($footer-background-color, $footer-background-color);
+    color: #f5eff3;
+
+    &__copyright {
+      $opacity-color: rgba(
+        $color: #bec2ff,
+        $alpha: 0.05,
+      );
+      background: linear-gradient($opacity-color, $opacity-color),
+        linear-gradient($footer-background-color, $footer-background-color);
+    }
+  }
+}
+
+app-text-field {
+  & .text-field__input {
+    border: 0.1rem solid theme-get("outline");
+    color: inherit;
   }
 }

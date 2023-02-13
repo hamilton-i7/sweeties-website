@@ -3,10 +3,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-filled-button',
   templateUrl: './filled-button.component.html',
+  styleUrls: ['./filled-button.component.scss'],
 })
 export class FilledButtonComponent {
-  @Input() href?: string;
-  @Input() newTab = false;
+  @Input() label = '';
+  @Input() darkVariant = false;
   @Output() btnClick = new EventEmitter();
 
   onClick() {

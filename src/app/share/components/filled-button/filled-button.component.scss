@@ -1,0 +1,11 @@
+@use "../../../../sass/base/typography";
+
+.button-filled {
+  @extend %label-l;
+
+  border-radius: 2rem;
+  column-gap: 0.8rem;
+  cursor: pointer;
+  height: 4rem;
+  padding: 0 2.4rem;
+}

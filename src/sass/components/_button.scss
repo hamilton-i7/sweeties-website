@@ -7,29 +7,11 @@ button {
   display: flex;
   justify-content: center;
   outline: none;
+  overflow: hidden;
   padding: 0;
 
   &:focus {
     outline: none;
-  }
-}
-
-.button--filled {
-  border-radius: 2rem;
-  column-gap: 0.8rem;
-  cursor: pointer;
-  height: 4rem;
-  //TODO: Change padding based on icon appearance
-  padding-left: 2.4rem;
-  padding-right: 1.6rem;
-
-  & > span {
-    @extend %label-l;
-  }
-
-  & > svg {
-    height: 2.4rem;
-    width: 2.4rem;
   }
 }
 

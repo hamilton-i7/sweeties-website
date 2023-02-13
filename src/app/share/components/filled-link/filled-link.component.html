@@ -1,0 +1,9 @@
+<a
+  [href]="href"
+  target="{{ newTab ? '_blank' : '_self' }}"
+  class="link-filled"
+  [ngClass]="darkVariant ? 'link-filled--dark' : 'link-filled--light'"
+>
+  <ng-content select="[label]"></ng-content>
+  <ng-content select="[icon]"></ng-content>
+</a>
