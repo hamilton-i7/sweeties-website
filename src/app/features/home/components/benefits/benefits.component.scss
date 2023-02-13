@@ -1,0 +1,52 @@
+@use "../../../../../sass/base/typography";
+
+.benefits {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  position: relative;
+
+  &__list {
+    align-items: center;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 7rem 1.6rem;
+    row-gap: 2.4rem;
+  }
+
+  &__list-item {
+    align-items: center;
+    display: flex;
+    column-gap: 1.6rem;
+  }
+
+  &__list-item-img {
+    height: 4.8rem;
+    width: 4.8rem;
+  }
+
+  &__list-item-text {
+    @extend %body-l;
+  }
+
+  &__list-item-divider {
+    height: 0.1rem;
+    width: 100%;
+    max-width: 35rem;
+
+    & > .divider {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .blob {
+    position: absolute;
+    bottom: 12rem;
+    left: -5rem;
+    width: 24rem;
+    z-index: -1;
+  }
+}

@@ -129,3 +129,14 @@ app-filled-button {
     }
   }
 }
+
+app-benefits {
+  & .benefits__list {
+    background-color: theme-get("primary");
+    color: theme-get("on-primary");
+  }
+
+  & .divider {
+    background-color: rgba($color: theme-get("on-primary"), $alpha: 0.62);
+  }
+}
