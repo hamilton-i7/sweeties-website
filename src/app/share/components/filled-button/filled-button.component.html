@@ -1,4 +1,16 @@
-<button type="button" class="button--filled" (click)="onClick()">
+<a
+  [href]="href"
+  target="{{ newTab ? '_blank' : '_self' }}"
+  class="button--filled"
+  *ngIf="href; else buttonEl"
+>
   <ng-content select="[label]"></ng-content>
   <ng-content select="[icon]"></ng-content>
-</button>
+</a>
+
+<ng-template #buttonEl>
+  <button type="button" class="button--filled" (click)="onClick()">
+    <ng-content select="[label]"></ng-content>
+    <ng-content select="[icon]"></ng-content>
+  </button>
+</ng-template>

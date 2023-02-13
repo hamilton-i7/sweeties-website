@@ -1,0 +1,11 @@
+a {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  width: fit-content;
+}
+
+a:visited {
+  color: currentColor;
+}
