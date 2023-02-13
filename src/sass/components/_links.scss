@@ -4,8 +4,12 @@ a {
   justify-content: center;
   text-decoration: none;
   width: fit-content;
-}
 
-a:visited {
-  color: currentColor;
+  &:focus {
+    outline: none;
+  }
+
+  &:visited {
+    color: currentColor;
+  }
 }
