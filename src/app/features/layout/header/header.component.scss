@@ -1,10 +1,11 @@
+@use "../../../../sass/abstracts/mixins" as m;
 @use "../../../../sass/abstracts/variables" as v;
 @use "../../../../sass/base/typography";
 
 .nav {
   align-items: center;
   display: flex;
-  height: v.$toolbar-height;
+  height: var(--toolbar-height);
   justify-content: space-between;
   padding: 0 1.6rem;
   position: fixed;
@@ -12,6 +13,26 @@
   top: 0;
   width: 100%;
   z-index: 1000;
+
+  @include m.for-size("small-up") {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+  }
+
+  @include m.for-size("large-up") {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+
+  @include m.for-size("desktop-up") {
+    padding-left: 16rem;
+    padding-right: 16rem;
+  }
+
+  @include m.for-size("extra-large-up") {
+    padding-left: clamp(16rem, 15%, 40rem);
+    padding-right: clamp(16rem, 15%, 40rem);
+  }
 
   &__logo-container {
     @extend %title-l;
@@ -25,5 +46,15 @@
 
   &__logo {
     width: 2.4rem;
+  }
+
+  &__links-container {
+    align-items: center;
+    display: flex;
+    column-gap: 1.6rem;
+
+    & > a {
+      @extend %body-l;
+    }
   }
 }

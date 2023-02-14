@@ -54,6 +54,19 @@ app-header {
     &__logo-container:active {
       color: theme-get("primary");
     }
+
+    &__links-container > a {
+      &:focus,
+      &:hover,
+      &:active {
+        color: theme-get("primary");
+      }
+
+      &:hover,
+      &:active {
+        text-decoration: underline solid 0.1rem currentColor;
+      }
+    }
   }
 
   nav.surface {

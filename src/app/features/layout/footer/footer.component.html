@@ -1,22 +1,25 @@
 <footer class="footer">
   <div class="footer__details">
-    <label class="subscribe__instructions-container">
-      <span class="subscribe__instructions-label"
-        >Suscríbete para enterarte de las últimas novedades y promociones</span
-      >
+    <label class="footer__instructions" for="email-field">
+      Suscríbete para enterarte de las últimas novedades y promociones
+    </label>
+    <div class="footer__cta-container">
       <app-text-field
+        id="email-field"
+        class="footer__field"
         placeholder="Tu correo"
         [value]="email"
         (valueChange)="onEmailChange($event)"
         [error]="((enableLiveFeedback$ | async) ?? false) && showEmailError"
         [helperText]="emailErrorMessage"
       ></app-text-field>
-    </label>
-    <app-filled-button
-      [darkVariant]="true"
-      label="Suscribirse"
-      (btnClick)="onSubscribe()"
-    ></app-filled-button>
+      <app-filled-button
+        class="footer__cta"
+        [darkVariant]="true"
+        label="Suscribirse"
+        (btnClick)="onSubscribe()"
+      ></app-filled-button>
+    </div>
     <hr class="footer__divider" />
     <ul class="footer__social-list">
       <li class="footer__social-list-item">

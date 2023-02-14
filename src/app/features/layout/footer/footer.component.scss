@@ -1,8 +1,10 @@
+@use "../../../../sass/abstracts/mixins" as m;
 @use "../../../../sass/base/typography";
 
 .footer {
   @extend %body-l;
 
+  align-items: center;
   display: flex;
   flex-direction: column;
   row-gap: 2.4rem;
@@ -11,13 +13,55 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    max-width: 52rem;
     padding: 6rem 1.6rem 0;
     text-align: center;
+
+    @include m.for-size("extra-large-up") {
+      max-width: 65rem;
+      width: 100%;
+    }
+  }
+
+  &__instructions {
+    margin-bottom: 2.4rem;
+  }
+
+  &__cta-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+
+    @include m.for-size("small-up") {
+      flex-direction: row;
+      gap: 1.6rem;
+    }
+
+    @include m.for-size("extra-large-up") {
+      gap: 3.2rem;
+    }
+  }
+
+  &__field {
+    width: 100%;
+
+    @include m.for-size("small-up") {
+      flex: 1.5;
+    }
+  }
+
+  &__cta {
+    @include m.for-size("small-up") {
+      margin-bottom: 1.8rem;
+      flex: 1;
+    }
   }
 
   &__divider {
     margin: 3.2rem 0;
-    width: clamp(18.5rem, 50%, 22rem);
+    width: clamp(18.5rem, 75%, 70.8rem);
   }
 
   &__social-list {
@@ -51,18 +95,10 @@
     height: 6.4rem;
     justify-content: center;
     padding: 0 1.6rem;
+    width: 100%;
   }
 
   &__copyright-text {
     @extend %body-s;
-  }
-}
-
-.subscribe__instructions {
-  &-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.6rem;
-    row-gap: 2.4rem;
   }
 }

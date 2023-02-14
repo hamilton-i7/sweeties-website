@@ -1,1 +1,11 @@
-$toolbar-height: 6.4rem;
+@use "./mixins" as m;
+
+:root {
+  --toolbar-height: 6.4rem;
+}
+
+@include m.for-size("small-up") {
+  :root {
+    --toolbar-height: 8rem;
+  }
+}

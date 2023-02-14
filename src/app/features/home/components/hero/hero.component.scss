@@ -1,3 +1,4 @@
+@use "../../../../../sass/abstracts/mixins" as m;
 @use "../../../../../sass/abstracts/variables" as v;
 @use "../../../../../sass/base/typography";
 
@@ -7,38 +8,80 @@
   flex-direction: column;
   gap: 4.8rem;
   margin-bottom: 6.4rem;
-  padding: v.$toolbar-height 1.6rem 0;
+  padding: calc(2.4rem + var(--toolbar-height)) 1.6rem 0;
   position: relative;
-  overflow-x: hidden;
+
+  @include m.for-size("small-up") {
+    gap: 6.4rem;
+    margin-bottom: 8rem;
+    padding: calc(4.8rem + var(--toolbar-height)) 3.2rem 0;
+  }
+
+  @include m.for-size("large-up") {
+    flex-direction: row;
+    gap: 0;
+    margin-bottom: 12rem;
+    padding: calc(8rem + var(--toolbar-height)) 10rem 0;
+  }
+
+  @include m.for-size("desktop-up") {
+    padding-left: 16rem;
+    padding-right: 16rem;
+  }
+
+  @include m.for-size("extra-large-up") {
+    padding-left: clamp(16rem, 15%, 40rem);
+    padding-right: clamp(16rem, 15%, 40rem);
+  }
 
   &__text-container {
     align-items: center;
     display: flex;
     flex-direction: column;
+    max-width: 49.5rem;
     text-align: center;
-    z-index: 1;
+
+    @include m.for-size("large-up") {
+      align-items: start;
+      text-align: start;
+    }
+
+    @include m.for-size("extra-large-up") {
+      flex: 1;
+      max-width: unset;
+    }
   }
 
   &__title {
     @extend %display-l;
+    @include m.for-size("small-up") {
+      margin-bottom: 0.8rem;
+    }
   }
 
   &__description {
     @extend %body-l;
     margin-bottom: 4rem;
+
+    @include m.for-size("small-up") {
+      margin-bottom: 4.8rem;
+    }
   }
 
   &__image-container {
+    max-width: 35rem;
     width: 100%;
+
+    @include m.for-size("large-up") {
+      max-width: unset;
+    }
+
+    @include m.for-size("extra-large-up") {
+      flex: 1.2;
+    }
   }
 
   &__img {
     width: 100%;
-  }
-
-  .blob {
-    position: absolute;
-    top: -3.5rem;
-    right: -7rem;
   }
 }
