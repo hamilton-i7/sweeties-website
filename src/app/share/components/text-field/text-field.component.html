@@ -1,0 +1,13 @@
+<div class="text-field">
+  <input
+    type="text"
+    [placeholder]="placeholder"
+    class="text-field__input"
+    #inputBox
+    [value]="value"
+    (input)="onValueChange(inputBox.value)"
+  />
+  <p class="text-field__error-message">
+    {{ error ? "El campo no debe estar vacío" : "&nbsp;" }}
+  </p>
+</div>
