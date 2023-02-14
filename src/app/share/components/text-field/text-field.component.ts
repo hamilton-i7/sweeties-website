@@ -9,6 +9,7 @@ export class TextFieldComponent {
   @Input() value = '';
   @Output() valueChange = new EventEmitter();
   @Input() placeholder = '';
+  @Input() helperText = '';
   @Input() error = false;
 
   onValueChange(value: string): void {

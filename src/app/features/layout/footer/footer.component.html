@@ -4,11 +4,18 @@
       <span class="subscribe__instructions-label"
         >Suscríbete para enterarte de las últimas novedades y promociones</span
       >
-      <app-text-field placeholder="Tu correo"></app-text-field>
+      <app-text-field
+        placeholder="Tu correo"
+        [value]="email"
+        (valueChange)="onEmailChange($event)"
+        [error]="((enableLiveFeedback$ | async) ?? false) && showEmailError"
+        [helperText]="emailErrorMessage"
+      ></app-text-field>
     </label>
     <app-filled-button
       [darkVariant]="true"
       label="Suscribirse"
+      (btnClick)="onSubscribe()"
     ></app-filled-button>
     <hr class="footer__divider" />
     <ul class="footer__social-list">

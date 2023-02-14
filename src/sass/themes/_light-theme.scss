@@ -225,8 +225,14 @@ app-footer {
 }
 
 app-text-field {
-  & .text-field__input {
-    border: 0.1rem solid theme-get("outline");
-    color: inherit;
+  & .text-field {
+    &__input {
+      border: 0.1rem solid theme-get("outline");
+      color: inherit;
+    }
+
+    &__error-message {
+      color: #ffb4a9;
+    }
   }
 }

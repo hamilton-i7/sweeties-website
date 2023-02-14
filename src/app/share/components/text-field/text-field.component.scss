@@ -1,6 +1,15 @@
+@use "../../../../sass/base/typography";
+
 .text-field {
   &__input {
     border-radius: 0.4rem;
     width: 100%;
+  }
+
+  &__error-message {
+    @extend %label-s;
+
+    margin-top: 0.4rem;
+    text-align: start;
   }
 }
