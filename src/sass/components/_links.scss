@@ -1,7 +1,10 @@
+@use "../base/typography";
+
 a {
   align-items: center;
   display: flex;
   justify-content: center;
+  overflow: hidden;
   text-decoration: none;
   width: fit-content;
 
@@ -9,7 +12,27 @@ a {
     outline: none;
   }
 
-  &:visited {
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
     color: currentColor;
+  }
+}
+
+.link-filled {
+  border-radius: 2rem;
+  column-gap: 0.8rem;
+  height: 4rem;
+  padding-left: 2.4rem;
+  padding-right: 1.6rem;
+
+  & > span {
+    @extend %label-l;
+  }
+
+  & > svg {
+    height: 2.4rem;
+    width: 2.4rem;
   }
 }
