@@ -39,6 +39,7 @@ app-root {
 
 app-header {
   & .nav {
+    transition: background 150ms ease-in;
     &__logo-container,
     &__logo-container:visited {
       color: theme-get("on-background");
@@ -53,6 +54,10 @@ app-header {
     &__logo-container:active {
       color: theme-get("primary");
     }
+  }
+
+  nav.surface {
+    background: #f0edf8;
   }
 }
 
