@@ -50,8 +50,16 @@
       [ngClass]="{ 'open-drawer': (openMobileDrawer$ | async) }"
     >
       <ul class="mobile-nav__links-container">
-        <li><a routerLink="/products">Productos</a></li>
-        <li><a routerLink="/buy-now">Comprar ahora</a></li>
+        <li>
+          <a routerLink="/products" (click)="onMobileDrawerToggle()"
+            >Productos</a
+          >
+        </li>
+        <li>
+          <a routerLink="/buy-now" (click)="onMobileDrawerToggle()"
+            >Comprar ahora</a
+          >
+        </li>
       </ul>
 
       <hr class="mobile-nav__divider" />
