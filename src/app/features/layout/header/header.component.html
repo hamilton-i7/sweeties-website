@@ -1,5 +1,5 @@
 <nav class="nav" [ngClass]="{ surface: (showSurface$ | async) }">
-  <a href="/" class="nav__logo-container">
+  <a routerLink="/" class="nav__logo-container">
     <img
       src="../../../../assets/logo-simple.svg"
       alt="Logo de Sweeties672"
@@ -50,8 +50,8 @@
       [ngClass]="{ 'open-drawer': (openMobileDrawer$ | async) }"
     >
       <ul class="mobile-nav__links-container">
-        <li><a href="/productos">Productos</a></li>
-        <li><a href="/comprar-ahora">Comprar ahora</a></li>
+        <li><a routerLink="/products">Productos</a></li>
+        <li><a routerLink="/buy-now">Comprar ahora</a></li>
       </ul>
 
       <hr class="mobile-nav__divider" />
@@ -62,8 +62,8 @@
 
   <ng-template #navLinks>
     <ul class="nav__links-container">
-      <li><a href="/productos">Productos</a></li>
-      <li><a href="/comprar-ahora">Comprar ahora</a></li>
+      <li><a routerLink="/products">Productos</a></li>
+      <li><a routerLink="/buy-now">Comprar ahora</a></li>
     </ul>
   </ng-template>
 </nav>

@@ -5,6 +5,7 @@ import { IconButtonComponent } from './components/icon-button/icon-button.compon
 import { TextFieldComponent } from './components/text-field/text-field.component';
 import { FilledLinkComponent } from './components/filled-link/filled-link.component';
 import { SocialButtonsComponent } from './components/social-buttons/social-buttons.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { SocialButtonsComponent } from './components/social-buttons/social-butto
     FilledLinkComponent,
     SocialButtonsComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     FilledButtonComponent,
     IconButtonComponent,

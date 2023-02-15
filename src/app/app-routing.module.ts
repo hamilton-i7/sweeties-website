@@ -6,7 +6,7 @@ import { ProductComponent } from './features/product/product.component';
 const routes: Routes = [
   { path: '', component: HomeComponent, title: 'Sweeties672 | Home' },
   {
-    path: 'productos',
+    path: 'products',
     component: ProductComponent,
     title: 'Sweeties672 | Productos',
   },

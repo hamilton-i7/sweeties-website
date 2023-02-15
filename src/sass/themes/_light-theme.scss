@@ -40,6 +40,7 @@ app-root {
 app-header {
   & .nav {
     transition: background 150ms ease-in;
+
     &__logo-container,
     &__logo-container:visited {
       color: theme-get("on-background");
@@ -310,5 +311,20 @@ app-text-field {
     &__error-message {
       color: #ffb4a9;
     }
+  }
+}
+
+app-product {
+  & .toolbar-placeholder {
+    background-color: theme-get("secondary-container");
+  }
+  & a.hero__banner:nth-of-type(odd) {
+    background-color: theme-get("secondary-container");
+    color: theme-get("on-secondary-container");
+  }
+
+  & a.hero__banner:nth-of-type(even) {
+    background-color: theme-get("tertiary");
+    color: theme-get("on-tertiary");
   }
 }
