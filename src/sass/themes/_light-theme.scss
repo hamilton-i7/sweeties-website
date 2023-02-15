@@ -173,6 +173,13 @@ app-benefits {
 }
 
 app-products {
+  & .card {
+    &:focus {
+      outline: 0.5rem solid theme-get("on-surface-variant");
+      outline-offset: -0.4rem;
+    }
+  }
+
   & .products__list-item:nth-child(odd) .card {
     background-color: theme-get("secondary");
     color: theme-get("on-secondary");

@@ -57,7 +57,13 @@
   border-radius: 3.2rem;
   display: block;
   padding: 1.6rem;
+  position: relative;
   width: 100%;
+
+  &:hover &__img,
+  &:active &__img {
+    scale: 1.1;
+  }
 
   @include m.for-size("large-up") {
     padding: 3.2rem;
@@ -70,6 +76,7 @@
 
   &__img {
     margin: 0 auto;
+    transition: scale 150ms ease-in;
     width: 25rem;
   }
 }
