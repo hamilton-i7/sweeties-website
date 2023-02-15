@@ -8,24 +8,62 @@
     Sweeties672
   </a>
 
-  <app-icon-button *ngIf="showMobileNav$ | async; else navLinks">
+  <app-icon-button
+    (btnClick)="onMobileDrawerToggle()"
+    class="nav__button"
+    *ngIf="showMobileNav$ | async; else navLinks"
+    ariaLabel="{{
+      (openMobileDrawer$ | async) ? 'Cerrar menú lateral' : 'Abrir menú lateral'
+    }}"
+  >
     <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      *ngIf="openMobileDrawer$ | async; else openIcon"
     >
       <path
-        d="M4 18H20C20.55 18 21 17.55 21 17C21 16.45 20.55 16 20 16H4C3.45 16 3 16.45 3 17C3 17.55 3.45 18 4 18ZM4 13H20C20.55 13 21 12.55 21 12C21 11.45 20.55 11 20 11H4C3.45 11 3 11.45 3 12C3 12.55 3.45 13 4 13ZM3 7C3 7.55 3.45 8 4 8H20C20.55 8 21 7.55 21 7C21 6.45 20.55 6 20 6H4C3.45 6 3 6.45 3 7Z"
+        d="M18.3 5.70999C18.2075 5.61729 18.0976 5.54374 17.9766 5.49356C17.8556 5.44338 17.7259 5.41755 17.595 5.41755C17.464 5.41755 17.3343 5.44338 17.2134 5.49356C17.0924 5.54374 16.9825 5.61729 16.89 5.70999L12 10.59L7.10998 5.69999C7.0174 5.60741 6.90749 5.53397 6.78652 5.48387C6.66556 5.43376 6.53591 5.40797 6.40498 5.40797C6.27405 5.40797 6.1444 5.43376 6.02344 5.48387C5.90247 5.53397 5.79256 5.60741 5.69998 5.69999C5.6074 5.79258 5.53396 5.90249 5.48385 6.02345C5.43375 6.14442 5.40796 6.27406 5.40796 6.40499C5.40796 6.53593 5.43375 6.66557 5.48385 6.78654C5.53396 6.9075 5.6074 7.01741 5.69998 7.10999L10.59 12L5.69998 16.89C5.6074 16.9826 5.53396 17.0925 5.48385 17.2135C5.43375 17.3344 5.40796 17.4641 5.40796 17.595C5.40796 17.7259 5.43375 17.8556 5.48385 17.9765C5.53396 18.0975 5.6074 18.2074 5.69998 18.3C5.79256 18.3926 5.90247 18.466 6.02344 18.5161C6.1444 18.5662 6.27405 18.592 6.40498 18.592C6.53591 18.592 6.66556 18.5662 6.78652 18.5161C6.90749 18.466 7.0174 18.3926 7.10998 18.3L12 13.41L16.89 18.3C16.9826 18.3926 17.0925 18.466 17.2134 18.5161C17.3344 18.5662 17.464 18.592 17.595 18.592C17.7259 18.592 17.8556 18.5662 17.9765 18.5161C18.0975 18.466 18.2074 18.3926 18.3 18.3C18.3926 18.2074 18.466 18.0975 18.5161 17.9765C18.5662 17.8556 18.592 17.7259 18.592 17.595C18.592 17.4641 18.5662 17.3344 18.5161 17.2135C18.466 17.0925 18.3926 16.9826 18.3 16.89L13.41 12L18.3 7.10999C18.68 6.72999 18.68 6.08999 18.3 5.70999Z"
       />
     </svg>
+
+    <ng-template #openIcon>
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 18H20C20.55 18 21 17.55 21 17C21 16.45 20.55 16 20 16H4C3.45 16 3 16.45 3 17C3 17.55 3.45 18 4 18ZM4 13H20C20.55 13 21 12.55 21 12C21 11.45 20.55 11 20 11H4C3.45 11 3 11.45 3 12C3 12.55 3.45 13 4 13ZM3 7C3 7.55 3.45 8 4 8H20C20.55 8 21 7.55 21 7C21 6.45 20.55 6 20 6H4C3.45 6 3 6.45 3 7Z"
+        />
+      </svg>
+    </ng-template>
   </app-icon-button>
 
+  <div class="mobile-nav" *ngIf="openMobileDrawer$ | async">
+    <aside
+      class="mobile-nav__drawer"
+      [ngClass]="{ 'open-drawer': (openMobileDrawer$ | async) }"
+    >
+      <ul class="mobile-nav__links-container">
+        <li><a href="/productos">Productos</a></li>
+        <li><a href="/comprar-ahora">Comprar ahora</a></li>
+      </ul>
+
+      <hr class="mobile-nav__divider" />
+      <app-social-buttons class="mobile-nav__socials"></app-social-buttons>
+    </aside>
+    <div class="mobile-nav__backdrop" (click)="onMobileDrawerToggle()"></div>
+  </div>
+
   <ng-template #navLinks>
-    <div class="nav__links-container">
-      <a href="/productos">Productos</a>
-      <a href="/comprar-ahora">Comprar ahora</a>
-    </div>
+    <ul class="nav__links-container">
+      <li><a href="/productos">Productos</a></li>
+      <li><a href="/comprar-ahora">Comprar ahora</a></li>
+    </ul>
   </ng-template>
 </nav>

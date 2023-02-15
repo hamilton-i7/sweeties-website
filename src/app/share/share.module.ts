@@ -4,6 +4,7 @@ import { FilledButtonComponent } from './components/filled-button/filled-button.
 import { IconButtonComponent } from './components/icon-button/icon-button.component';
 import { TextFieldComponent } from './components/text-field/text-field.component';
 import { FilledLinkComponent } from './components/filled-link/filled-link.component';
+import { SocialButtonsComponent } from './components/social-buttons/social-buttons.component';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { FilledLinkComponent } from './components/filled-link/filled-link.compon
     IconButtonComponent,
     TextFieldComponent,
     FilledLinkComponent,
+    SocialButtonsComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -18,6 +20,7 @@ import { FilledLinkComponent } from './components/filled-link/filled-link.compon
     IconButtonComponent,
     TextFieldComponent,
     FilledLinkComponent,
+    SocialButtonsComponent,
   ],
 })
 export class ShareModule {}

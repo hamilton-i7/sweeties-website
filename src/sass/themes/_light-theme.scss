@@ -55,7 +55,8 @@ app-header {
       color: theme-get("primary");
     }
 
-    &__links-container > a {
+    &__links-container a,
+    .mobile-nav a {
       &:focus,
       &:hover,
       &:active {
@@ -71,6 +72,51 @@ app-header {
 
   nav.surface {
     background: #f0edf8;
+  }
+
+  & .mobile-nav {
+    &__backdrop {
+      background-color: rgba(
+        $color: theme-get("inverse-surface"),
+        $alpha: 0.42
+      );
+    }
+
+    &__drawer {
+      background-color: #e5e3f5;
+    }
+
+    &__divider {
+      border-color: rgba($color: theme-get("outline"), $alpha: 0.42);
+    }
+  }
+
+  & app-social-buttons .socials__list-item a {
+    &:focus .state-layer {
+      border-color: theme-get("primary");
+    }
+
+    &:focus svg {
+      fill: theme-get("primary");
+    }
+
+    &:hover .state-layer,
+    &:active .state-layer {
+      background-color: theme-get("on-surface-variant");
+    }
+
+    &:hover svg,
+    &:active svg {
+      fill: #e5e3f5;
+    }
+
+    & .state-layer {
+      border-color: theme-get("on-surface-variant");
+    }
+
+    & svg {
+      fill: theme-get("on-surface-variant");
+    }
   }
 }
 
@@ -161,6 +207,23 @@ app-filled-button {
   }
 }
 
+app-social-buttons .socials__list-item a {
+  & .state-layer {
+    border: 0.1rem solid;
+    transition: 150ms ease-in;
+    transition-property: background-color, border-color;
+  }
+
+  & svg {
+    transition: fill 150ms ease-in;
+  }
+
+  &:hover .state-layer,
+  &:active .state-layer {
+    border-color: transparent;
+  }
+}
+
 app-benefits {
   & .benefits__list {
     background-color: theme-get("primary");
@@ -192,10 +255,10 @@ app-products {
 }
 
 app-footer {
-  & .footer {
-    $footer-background-color: #34323d;
-    $footer-color: #f5eff3;
+  $footer-background-color: #34323d;
+  $footer-color: #f5eff3;
 
+  & .footer {
     background-color: $footer-background-color;
     color: $footer-color;
 
@@ -206,40 +269,33 @@ app-footer {
       );
       background-color: #252329;
     }
+  }
 
-    &__social-list-item {
-      & > a {
-        & .state-layer {
-          border: 0.1rem solid;
-          border-color: $footer-color;
-          transition: 150ms ease-in;
-          transition-property: background-color, border-color;
-        }
+  & app-social-buttons .socials__list-item a {
+    &:focus .state-layer {
+      border-color: theme-get("inverse-primary");
+    }
 
-        & svg {
-          fill: $footer-color;
-          transition: fill 150ms ease-in;
-        }
+    &:focus svg {
+      fill: theme-get("inverse-primary");
+    }
 
-        &:focus .state-layer {
-          border-color: theme-get("inverse-primary");
-        }
+    &:hover .state-layer,
+    &:active .state-layer {
+      background-color: theme-get("inverse-primary");
+    }
 
-        &:focus svg {
-          fill: theme-get("inverse-primary");
-        }
+    &:hover svg,
+    &:active svg {
+      fill: $footer-background-color;
+    }
 
-        &:hover .state-layer,
-        &:active .state-layer {
-          background-color: theme-get("inverse-primary");
-          border-color: transparent;
-        }
+    & .state-layer {
+      border-color: #f5eff3;
+    }
 
-        &:hover svg,
-        &:active svg {
-          fill: $footer-background-color;
-        }
-      }
+    & svg {
+      fill: #f5eff3;
     }
   }
 }

@@ -64,30 +64,6 @@
     width: clamp(18.5rem, 75%, 70.8rem);
   }
 
-  &__social-list {
-    align-items: center;
-    column-gap: 1.2rem;
-    display: flex;
-    list-style: none;
-  }
-
-  &__social-list-item > a {
-    align-items: center;
-    display: flex;
-    height: 4rem;
-    justify-content: center;
-    width: 4rem;
-
-    & .state-layer {
-      align-items: center;
-      border-radius: 50%;
-      display: flex;
-      height: 3.6rem;
-      justify-content: center;
-      width: 3.6rem;
-    }
-  }
-
   &__copyright {
     align-items: center;
     display: flex;
