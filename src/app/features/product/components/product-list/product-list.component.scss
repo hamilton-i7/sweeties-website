@@ -1,0 +1,23 @@
+@use "../../../../../sass/base/typography";
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6.4rem;
+  row-gap: 3.2rem;
+}
+
+.category {
+  &__name {
+    @extend %display-m;
+
+    margin-bottom: 1.6rem;
+    padding-left: 1.6rem;
+  }
+
+  &__products {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.4rem;
+  }
+}

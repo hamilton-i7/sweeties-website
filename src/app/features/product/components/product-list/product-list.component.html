@@ -1,0 +1,18 @@
+<main class="product-list">
+  <section
+    class="category"
+    *ngFor="let item of productsMap$ | async | keyvalue"
+    id="{{ item.key }}"
+  >
+    <h2 class="category__name">{{ item.key | titlecase }}</h2>
+    <ul class="category__products">
+      <li *ngFor="let product of item.value">
+        <app-product-card
+          [product]="product"
+          [isNew]="item.key === 'nuevo'"
+          [imgSrc]="product.imgUrl"
+        ></app-product-card>
+      </li>
+    </ul>
+  </section>
+</main>

@@ -328,3 +328,26 @@ app-hero-product {
     color: theme-get("on-tertiary");
   }
 }
+
+app-product-card {
+  & .product {
+    background-color: theme-get("surface-variant");
+
+    &__img-container {
+      background-color: white;
+    }
+
+    &__chip {
+      background-color: theme-get("secondary-container");
+      color: theme-get("on-secondary-container");
+    }
+
+    &__name {
+      color: theme-get("on-surface");
+    }
+
+    &__description {
+      color: theme-get("on-surface-variant");
+    }
+  }
+}

@@ -1,0 +1,74 @@
+@use "../../../../../sass/base/typography";
+
+.product {
+  align-items: stretch;
+  display: flex;
+  height: 17.5rem;
+  width: 100%;
+
+  &__img-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: 14rem;
+  }
+
+  &__img {
+    width: 92%;
+  }
+
+  &__chip {
+    @extend %label-m;
+
+    align-items: center;
+    border-radius: 0.8rem;
+    display: flex;
+    height: 3.2rem;
+    justify-content: center;
+    padding: 0 1.6rem;
+    position: absolute;
+    right: 0.4rem;
+    top: 0.4rem;
+  }
+
+  &__details {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 2.4rem;
+  }
+
+  &__name {
+    @extend %title-m;
+
+    margin-bottom: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__description {
+    @extend %body-m;
+
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    display: -webkit-box;
+    margin-bottom: 2.4rem;
+    overflow: hidden;
+  }
+
+  &__price {
+    @extend %label-l;
+
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: end;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

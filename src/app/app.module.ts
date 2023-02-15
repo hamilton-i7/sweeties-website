@@ -8,23 +8,21 @@ import {
   ScreenTrackingService,
   UserTrackingService,
 } from '@angular/fire/analytics';
-import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { FeaturesModule } from './features/features.module';
-import { AngularFireModule } from '@angular/fire/compat';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShareModule } from './share/share.module';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule,
-    AngularFireStorageModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     FeaturesModule,
     BrowserAnimationsModule,
     ShareModule,
