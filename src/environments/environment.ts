@@ -7,4 +7,6 @@ export const environment = {
     authDomain: 'sweeties672-4f600.firebaseapp.com',
     messagingSenderId: '774831250273',
     measurementId: 'G-D8VTFGW82C',
-  },};
+  },
+  phone: '50763001488',
+};
