@@ -9,7 +9,7 @@
       <li *ngFor="let product of item.value">
         <app-product-card
           [product]="product"
-          [isNew]="item.key === 'nuevo'"
+          [isNew]="isNewProduct(product)"
           [imgSrc]="product.imgUrl"
         ></app-product-card>
       </li>

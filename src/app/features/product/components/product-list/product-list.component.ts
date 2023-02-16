@@ -6,7 +6,7 @@ import {
   CATEGORY_RECOMMENDED,
 } from '../../../../core/constants/category';
 import { ProductService } from '../../services/product.service';
-import { isNewProduct } from '../../../../core/utils/product';
+import * as dayjs from 'dayjs';
 
 @Component({
   selector: 'app-product-list',
@@ -47,7 +47,7 @@ export class ProductListComponent implements OnInit {
     const result: Map<string, Product[]> = new Map();
 
     products.forEach((product) => {
-      if (isNewProduct(product)) {
+      if (this.isNewProduct(product)) {
         result.set(CATEGORY_NEW, [
           ...(result.get(CATEGORY_NEW) ?? []),
           product,
@@ -68,5 +68,12 @@ export class ProductListComponent implements OnInit {
     });
 
     this.productsMap$.next(result);
+  }
+
+  isNewProduct(product: Product): boolean {
+    const createdDate = dayjs(product.createdAt);
+    const monthOldDate = dayjs(new Date()).subtract(1, 'month');
+
+    return createdDate.isAfter(monthOldDate);
   }
 }
