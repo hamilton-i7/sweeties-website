@@ -58,6 +58,10 @@
     display: -webkit-box;
     margin-bottom: 2.4rem;
     overflow: hidden;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
 
   &__price {
@@ -66,7 +70,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

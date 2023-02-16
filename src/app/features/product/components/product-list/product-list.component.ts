@@ -7,6 +7,8 @@ import {
 import { ProductService } from '../../services/product.service';
 import * as dayjs from 'dayjs';
 import { IProduct } from '../../../../core/models/product';
+import { KeyValue } from '@angular/common';
+import { Category } from '../../../../core/models/category';
 
 @Component({
   selector: 'app-product-list',
@@ -44,27 +46,27 @@ export class ProductListComponent implements OnInit {
   }
 
   private setupProductsMap(products: IProduct[]): void {
-    const result: Map<string, IProduct[]> = new Map();
+    const result: Map<string, IProduct[]> = new Map([
+      [CATEGORY_NEW, []],
+      [CATEGORY_RECOMMENDED, []],
+      [Category.SHAKES, []],
+      [Category.SMOOTHIES, []],
+      [Category.DESSERTS, []],
+    ]);
 
     products.forEach((product) => {
       if (this.isNewProduct(product)) {
-        result.set(CATEGORY_NEW, [
-          ...(result.get(CATEGORY_NEW) ?? []),
-          product,
-        ]);
+        result.set(CATEGORY_NEW, [...result.get(CATEGORY_NEW)!, product]);
       }
 
       if (product.recommended) {
         result.set(CATEGORY_RECOMMENDED, [
-          ...(result.get(CATEGORY_RECOMMENDED) ?? []),
+          ...result.get(CATEGORY_RECOMMENDED)!,
           product,
         ]);
       }
 
-      result.set(product.category, [
-        ...(result.get(product.category) ?? []),
-        product,
-      ]);
+      result.set(product.category, [...result.get(product.category)!, product]);
     });
 
     this.productsMap$.next(result);
@@ -75,5 +77,12 @@ export class ProductListComponent implements OnInit {
     const monthOldDate = dayjs(new Date()).subtract(1, 'month');
 
     return createdDate.isAfter(monthOldDate);
+  }
+
+  setupKeysOrder(
+    a: KeyValue<string, IProduct[]>,
+    b: KeyValue<string, IProduct[]>
+  ): number {
+    return 0;
   }
 }
