@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../../../core/models/product';
 import { BehaviorSubject } from 'rxjs';
 import {
   CATEGORY_NEW,
@@ -7,6 +6,7 @@ import {
 } from '../../../../core/constants/category';
 import { ProductService } from '../../services/product.service';
 import * as dayjs from 'dayjs';
+import { IProduct } from '../../../../core/models/product';
 
 @Component({
   selector: 'app-product-list',
@@ -14,7 +14,7 @@ import * as dayjs from 'dayjs';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  productsMap$ = new BehaviorSubject<Map<string, Product[]>>(new Map());
+  productsMap$ = new BehaviorSubject<Map<string, IProduct[]>>(new Map());
 
   constructor(private productService: ProductService) {}
 
@@ -43,8 +43,8 @@ export class ProductListComponent implements OnInit {
     }
   }
 
-  private setupProductsMap(products: Product[]): void {
-    const result: Map<string, Product[]> = new Map();
+  private setupProductsMap(products: IProduct[]): void {
+    const result: Map<string, IProduct[]> = new Map();
 
     products.forEach((product) => {
       if (this.isNewProduct(product)) {
@@ -70,7 +70,7 @@ export class ProductListComponent implements OnInit {
     this.productsMap$.next(result);
   }
 
-  isNewProduct(product: Product): boolean {
+  isNewProduct(product: IProduct): boolean {
     const createdDate = dayjs(product.createdAt);
     const monthOldDate = dayjs(new Date()).subtract(1, 'month');
 

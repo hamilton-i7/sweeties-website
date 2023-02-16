@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../../../../core/models/product';
+import { IProduct } from '../../../../core/models/product';
 
 @Component({
   selector: 'app-product-card',
@@ -7,7 +7,7 @@ import { Product } from '../../../../core/models/product';
   styleUrls: ['./product-card.component.scss'],
 })
 export class ProductCardComponent {
-  @Input() product?: Product;
+  @Input() product?: IProduct;
   @Input() imgSrc = '';
   @Input() isNew = false;
   @Input() variant = CardVariant.FILLED;

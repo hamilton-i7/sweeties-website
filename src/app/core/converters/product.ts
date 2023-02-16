@@ -1,7 +1,7 @@
 import { FirestoreDataConverter } from '@angular/fire/firestore';
-import { Product } from '../models/product';
+import { IProduct } from '../models/product';
 
-export const productConverter: FirestoreDataConverter<Product> = {
+export const productConverter: FirestoreDataConverter<IProduct> = {
   toFirestore: (product) => ({
     id: product.id,
     name: product.name,
@@ -16,17 +16,18 @@ export const productConverter: FirestoreDataConverter<Product> = {
   }),
   fromFirestore: (snapshot, options) => {
     const data: any = snapshot.data(options);
-    return new Product(
-      data.id,
-      data.name,
-      data.price,
-      data.recommended,
-      data.category,
-      data.imgPath,
-      data.imgUrl,
-      data.description,
-      data.createdAt.toDate(),
-      data.updatedAt.toDate()
-    );
+    const product: IProduct = {
+      id: data.id,
+      name: data.name,
+      description: data.description,
+      price: data.price,
+      recommended: data.recommended,
+      category: data.category,
+      imgPath: data.imgPath,
+      imgUrl: data.imgUrl,
+      createdAt: data.createdAt.toDate(),
+      updatedAt: data.updatedAt.toDate(),
+    };
+    return product;
   },
 };
