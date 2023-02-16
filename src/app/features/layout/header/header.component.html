@@ -44,10 +44,10 @@
     </ng-template>
   </app-icon-button>
 
-  <div class="mobile-nav" *ngIf="openMobileDrawer$ | async">
+  <div class="mobile-nav">
     <aside
       class="mobile-nav__drawer"
-      [ngClass]="{ 'open-drawer': (openMobileDrawer$ | async) }"
+      [ngClass]="{ open: (openMobileDrawer$ | async) }"
     >
       <ul class="mobile-nav__links-container">
         <li>
@@ -65,7 +65,11 @@
       <hr class="mobile-nav__divider" />
       <app-social-buttons class="mobile-nav__socials"></app-social-buttons>
     </aside>
-    <div class="mobile-nav__backdrop" (click)="onMobileDrawerToggle()"></div>
+    <div
+      class="mobile-nav__backdrop"
+      *ngIf="openMobileDrawer$ | async"
+      (click)="onMobileDrawerToggle()"
+    ></div>
   </div>
 
   <ng-template #navLinks>
