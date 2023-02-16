@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../../core/models/product';
-import { BehaviorSubject, from, mergeMap } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import {
   CATEGORY_NEW,
   CATEGORY_RECOMMENDED,
 } from '../../../../core/constants/category';
 import { ProductService } from '../../services/product.service';
-import { ProductStorageService } from '../../services/product-storage.service';
-import { getDownloadURL } from '@angular/fire/storage';
 import { isNewProduct } from '../../../../core/utils/product';
 
 @Component({
@@ -16,45 +14,37 @@ import { isNewProduct } from '../../../../core/utils/product';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  productsMap$ = new BehaviorSubject<
-    Map<string, (Product & { imgUrl: string })[]>
-  >(new Map());
+  productsMap$ = new BehaviorSubject<Map<string, Product[]>>(new Map());
 
-  constructor(
-    private productService: ProductService,
-    private productStorageService: ProductStorageService
-  ) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.getProducts();
   }
 
   getProducts(): void {
-    const imagesPromise = this.productStorageService.getImages();
-
-    from(imagesPromise)
-      .pipe(
-        mergeMap(async (images) => {
-          const map: Map<string, string> = new Map();
-          const mapSetup = new Promise<void>((resolve) => {
-            images.forEach(async (image) => {
-              map.set(image.fullPath, await getDownloadURL(image));
-              resolve();
-            });
-          });
-
-          await mapSetup;
-          return this.productService.getProducts(map);
-        }),
-        mergeMap((result) => result)
-      )
-      .subscribe((products) => {
-        this.setupProductsMap(products);
-      });
+    this.productService
+      .getProducts()
+      .subscribe((products) => this.setupProductsMap(products));
   }
 
-  private setupProductsMap(products: (Product & { imgUrl: string })[]): void {
-    const result: Map<string, (Product & { imgUrl: string })[]> = new Map();
+  getSectionId(key: string): string {
+    switch (key) {
+      case 'nuevo':
+        return 'new';
+      case 'recomendado':
+        return 'recommended';
+      case 'smoothies':
+        return 'smoothies';
+      case 'batidos':
+        return 'shakes';
+      default:
+        return 'desserts';
+    }
+  }
+
+  private setupProductsMap(products: Product[]): void {
+    const result: Map<string, Product[]> = new Map();
 
     products.forEach((product) => {
       if (isNewProduct(product)) {

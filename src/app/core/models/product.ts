@@ -9,6 +9,7 @@ export class Product {
   readonly recommended: boolean;
   readonly category: Category;
   readonly imgPath: string;
+  readonly imgUrl: string;
   readonly createdAt: Date;
   readonly updatedAt: Date;
 
@@ -19,6 +20,7 @@ export class Product {
     recommended = false,
     category: Category,
     imgPath: string,
+    imgUrl: string,
     description?: string,
     createdAt = new Date(),
     updatedAt = new Date()
@@ -29,6 +31,7 @@ export class Product {
     this.recommended = recommended;
     this.category = category;
     this.imgPath = imgPath;
+    this.imgUrl = imgUrl;
     this.description = description;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;

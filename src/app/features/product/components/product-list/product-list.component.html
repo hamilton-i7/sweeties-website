@@ -2,7 +2,7 @@
   <section
     class="category"
     *ngFor="let item of productsMap$ | async | keyvalue"
-    id="{{ item.key }}"
+    [id]="getSectionId(item.key)"
   >
     <h2 class="category__name">{{ item.key | titlecase }}</h2>
     <ul class="category__products">

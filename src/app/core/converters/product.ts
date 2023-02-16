@@ -10,6 +10,7 @@ export const productConverter: FirestoreDataConverter<Product> = {
     recommended: product.recommended,
     category: product.category,
     imgPath: product.imgPath,
+    imgUrl: product.imgUrl,
     createdAt: product.createdAt,
     updatedAt: product.updatedAt,
   }),
@@ -22,6 +23,7 @@ export const productConverter: FirestoreDataConverter<Product> = {
       data.recommended,
       data.category,
       data.imgPath,
+      data.imgUrl,
       data.description,
       data.createdAt.toDate(),
       data.updatedAt.toDate()
