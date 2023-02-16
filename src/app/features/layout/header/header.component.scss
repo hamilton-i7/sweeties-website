@@ -72,6 +72,16 @@
   right: 0;
   top: 0;
   width: 100%;
+  visibility: hidden;
+  transition: visibility 200ms ease-in-out;
+
+  &.open {
+    visibility: visible;
+
+    & .mobile-nav__drawer {
+      right: 0;
+    }
+  }
 
   &__backdrop {
     height: 100vh;
@@ -99,10 +109,6 @@
     transition: right 200ms ease-in-out;
     width: 85%;
     z-index: 1100;
-
-    &.open {
-      right: 0;
-    }
   }
 
   &__links-container {

@@ -44,11 +44,8 @@
     </ng-template>
   </app-icon-button>
 
-  <div class="mobile-nav">
-    <aside
-      class="mobile-nav__drawer"
-      [ngClass]="{ open: (openMobileDrawer$ | async) }"
-    >
+  <div class="mobile-nav" [ngClass]="{ open: (openMobileDrawer$ | async) }">
+    <aside class="mobile-nav__drawer">
       <ul class="mobile-nav__links-container">
         <li>
           <a routerLink="/products" (click)="onMobileDrawerToggle()"
