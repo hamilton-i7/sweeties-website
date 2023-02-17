@@ -12,6 +12,10 @@
     margin-bottom: 8rem;
     row-gap: 7.2rem;
   }
+
+  @include m.for-size("desktop-up") {
+    row-gap: 9.6rem;
+  }
 }
 
 .category {
