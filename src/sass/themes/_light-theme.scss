@@ -362,3 +362,12 @@ app-product-card {
     }
   }
 }
+
+app-hero-buy {
+  & .hero {
+    background-color: theme-get("primary-container");
+    &__title {
+      color: theme-get("on-primary-container");
+    }
+  }
+}

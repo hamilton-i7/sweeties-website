@@ -1,0 +1,33 @@
+@use "../../../../../sass/base/typography";
+
+.hero {
+  padding-top: calc(var(--toolbar-height) + 2.4rem);
+  text-align: center;
+
+  &__text-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4.8rem;
+    padding: 0 1.6rem;
+  }
+
+  &__title {
+    @extend %display-l;
+    margin-bottom: 0.8rem;
+  }
+
+  &__description {
+    @extend %body-l;
+    margin-bottom: 3.2rem;
+  }
+
+  &__img {
+    padding: 0 1.6rem;
+    width: 100%;
+  }
+
+  &__pattern {
+    rotate: 180deg;
+  }
+}
