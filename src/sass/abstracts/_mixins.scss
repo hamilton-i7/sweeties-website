@@ -27,8 +27,8 @@
     @media (min-width: 1536px) {
       @content;
     }
-  } @else if $size == "tv-up" {
-    @media (min-width: 1820px) {
+  } @else if $size == "high-res-up" {
+    @media (min-width: 1920px) {
       @content;
     }
   } @else if ($size == "custom-up") {

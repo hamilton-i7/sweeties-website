@@ -26,7 +26,7 @@
     padding-left: clamp(16rem, 15%, 40rem);
   }
 
-  @include m.for-size("tv-up") {
+  @include m.for-size("high-res-up") {
     column-gap: 12rem;
     justify-content: center;
     padding: 0;
@@ -58,7 +58,7 @@
       padding-right: clamp(16rem, 15%, 40rem);
     }
 
-    @include m.for-size("tv-up") {
+    @include m.for-size("high-res-up") {
       border-radius: 3.2rem;
       padding: 9.6rem;
     }
