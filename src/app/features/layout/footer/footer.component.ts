@@ -17,7 +17,7 @@ export class FooterComponent {
   email = '';
   showEmailError = false;
   emailErrorMessage = '';
-  emailChangeTimeout?: NodeJS.Timeout;
+  emailChangeTimeout?: ReturnType<typeof setTimeout>;
   enableLiveFeedback$ = new BehaviorSubject(false);
 
   onEmailChange({ value }: { value: string }): void {
