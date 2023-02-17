@@ -12,6 +12,10 @@
     margin-bottom: 8rem;
   }
 
+  @include m.for-size("desktop-up") {
+    margin-bottom: 12rem;
+  }
+
   & .toolbar-placeholder {
     height: var(--toolbar-height);
     width: 100%;
