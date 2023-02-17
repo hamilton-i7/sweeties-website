@@ -14,6 +14,6 @@ export class ProductCardComponent {
 }
 
 export enum CardVariant {
-  FILLED,
-  OUTLINED,
+  FILLED = 'filled',
+  OUTLINED = 'outlined',
 }

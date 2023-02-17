@@ -1,0 +1,72 @@
+@use "../../../sass/abstracts/mixins" as m;
+
+.products {
+  overflow: hidden;
+  position: relative;
+}
+
+:not(:is(img.blob)) {
+  position: relative;
+  z-index: 2;
+}
+
+img.blob {
+  width: 24rem;
+  z-index: 1;
+
+  @include m.for-size("small-up") {
+    height: 50rem;
+    width: 50rem;
+  }
+
+  @include m.for-size("custom-up", 1024px) {
+    height: 60rem;
+    width: 60rem;
+  }
+
+  @include m.for-size("desktop-up") {
+    height: 80rem;
+    width: 80rem;
+  }
+}
+
+img:first-of-type.blob {
+  position: absolute;
+  left: -5rem;
+  top: 32%;
+
+  @include m.for-size("small-up") {
+    left: -12rem;
+  }
+
+  @include m.for-size("medium-up") {
+    top: 35%;
+  }
+
+  @include m.for-size("large-up") {
+    left: -17rem;
+  }
+
+  @include m.for-size("desktop-up") {
+    left: -35rem;
+    top: 40%;
+    rotate: 218deg;
+  }
+}
+
+img:last-of-type.blob {
+  position: absolute;
+  bottom: -8rem;
+  right: -5rem;
+
+  @include m.for-size("small-up") {
+    bottom: -18rem;
+    right: -15rem;
+  }
+
+  @include m.for-size("desktop-up") {
+    bottom: -15rem;
+    right: -17rem;
+    rotate: 288deg;
+  }
+}

@@ -1,4 +1,4 @@
-<article class="product" *ngIf="product">
+<article class="product" [ngClass]="variant" *ngIf="product">
   <figure class="product__img-container">
     <div class="product__chip" *ngIf="isNew">Nuevo</div>
     <img [src]="imgSrc" alt="{{ product.name }}" class="product__img" />

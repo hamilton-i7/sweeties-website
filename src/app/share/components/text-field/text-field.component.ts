@@ -11,6 +11,7 @@ export class TextFieldComponent {
   @Input() placeholder = '';
   @Input() helperText = '';
   @Input() error = false;
+  @Input() inputId = '';
 
   onValueChange(value: string): void {
     this.valueChange.emit({ value });

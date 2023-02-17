@@ -1,15 +1,34 @@
+@use "../../../../../sass/abstracts/mixins" as m;
 @use "../../../../../sass/base/typography";
 
 .hero {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   margin-bottom: 6.4rem;
+  min-height: 100vh;
   width: 100%;
+
+  @include m.for-size("small-up") {
+    margin-bottom: 8rem;
+  }
 
   & .toolbar-placeholder {
     height: var(--toolbar-height);
     width: 100%;
+
+    @include m.for-size("large-up") {
+      display: none;
+    }
+  }
+
+  &__banner-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    @include m.for-size("large-up") {
+      flex-direction: row;
+    }
   }
 
   &__banner {
@@ -17,12 +36,28 @@
     display: flex;
     flex: 1;
     flex-direction: column;
+    gap: 2.4rem;
     justify-content: center;
+    padding: 2.4rem 0;
     width: 100%;
+
+    &:hover &-img,
+    &:active &-img {
+      scale: 1.1;
+    }
+
+    @include m.for-size("large-up") {
+      gap: 4.8rem;
+    }
   }
 
   &__banner-img {
+    transition: scale 150ms ease-in;
     width: 15rem;
+
+    @include m.for-size("large-up") {
+      width: 24rem;
+    }
   }
 
   &__banner-title {

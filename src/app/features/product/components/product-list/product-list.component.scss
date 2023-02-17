@@ -1,3 +1,4 @@
+@use "../../../../../sass/abstracts/mixins" as m;
 @use "../../../../../sass/base/typography";
 
 .product-list {
@@ -5,20 +6,64 @@
   flex-direction: column;
   margin-bottom: 6.4rem;
   row-gap: 3.2rem;
+
+  @include m.for-size("small-up") {
+    align-items: center;
+    margin-bottom: 8rem;
+    row-gap: 7.2rem;
+  }
 }
 
 .category {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
   &__name {
     @extend %display-m;
 
     margin-bottom: 1.6rem;
     padding-left: 1.6rem;
+
+    @include m.for-size("small-up") {
+      margin-bottom: 2.4rem;
+      padding: 0;
+    }
+
+    @include m.for-size("tablet-up") {
+      margin-bottom: 3.2rem;
+    }
   }
 
   &__products {
     display: flex;
     flex-direction: column;
+    list-style: none;
     row-gap: 0.4rem;
+    width: 100%;
+
+    @include m.for-size("small-up") {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 2.4rem;
+      width: fit-content;
+    }
+
+    @include m.for-size("medium-up") {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.4rem;
+    }
+
+    @include m.for-size("desktop-up") {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3.2rem;
+    }
+
+    @include m.for-size("tv-up") {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4rem;
+    }
   }
 }
 

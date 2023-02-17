@@ -9,6 +9,8 @@ import * as dayjs from 'dayjs';
 import { IProduct } from '../../../../core/models/product';
 import { KeyValue } from '@angular/common';
 import { Category } from '../../../../core/models/category';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { CardVariant } from '../product-card/product-card.component';
 
 @Component({
   selector: 'app-product-list',
@@ -17,11 +19,17 @@ import { Category } from '../../../../core/models/category';
 })
 export class ProductListComponent implements OnInit {
   productsMap$ = new BehaviorSubject<Map<string, IProduct[]>>(new Map());
+  productCardVariant$ = new BehaviorSubject<CardVariant>(CardVariant.FILLED);
+  productCardDefault = CardVariant.FILLED;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private breakpointObserver: BreakpointObserver
+  ) {}
 
   ngOnInit(): void {
     this.getProducts();
+    this.changeProductCardVariant();
   }
 
   getProducts(): void {
@@ -80,9 +88,19 @@ export class ProductListComponent implements OnInit {
   }
 
   setupKeysOrder(
-    a: KeyValue<string, IProduct[]>,
-    b: KeyValue<string, IProduct[]>
+    _a: KeyValue<string, IProduct[]>,
+    _b: KeyValue<string, IProduct[]>
   ): number {
     return 0;
+  }
+
+  changeProductCardVariant(): void {
+    this.breakpointObserver
+      .observe('(min-width: 600px)')
+      .subscribe((result) => {
+        result.matches
+          ? this.productCardVariant$.next(CardVariant.OUTLINED)
+          : this.productCardVariant$.next(CardVariant.FILLED);
+      });
   }
 }
