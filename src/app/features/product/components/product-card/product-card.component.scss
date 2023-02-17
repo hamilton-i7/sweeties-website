@@ -4,12 +4,11 @@
   align-items: stretch;
   display: flex;
   height: 17.5rem;
-  width: 100%;
+  width: var(--product-card-width);
 
   &.outlined {
     border-radius: 1.2rem;
     overflow: hidden;
-    width: 37.5rem;
   }
 
   &__img-container {
