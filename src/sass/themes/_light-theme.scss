@@ -32,7 +32,7 @@ $light-theme-map: (
   @return map-get($map: $light-theme-map, $key: $key);
 }
 
-app-root {
+body {
   background-color: theme-get("background");
   color: theme-get("on-background");
 }
