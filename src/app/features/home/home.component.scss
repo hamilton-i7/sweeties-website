@@ -3,11 +3,11 @@
 .home {
   overflow: hidden;
   position: relative;
-}
 
-:not(:is(img.blob)) {
-  position: relative;
-  z-index: 2;
+  & :not(:is(img.blob)) {
+    position: relative;
+    z-index: 2;
+  }
 }
 
 img.blob {
