@@ -23,4 +23,8 @@
   &__title {
     @extend %display-m;
   }
+
+  &__map {
+    width: 100%;
+  }
 }

@@ -7,5 +7,9 @@
       class="location__img"
     />
   </figure>
-  <div class="location__map"></div>
+  <div class="location__map" *ngIf="apiLoaded$ | async">
+    <google-map [options]="options" width="100%">
+      <map-marker [options]="markerOptions"></map-marker>
+    </google-map>
+  </div>
 </main>

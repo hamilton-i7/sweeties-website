@@ -9,4 +9,5 @@ export const environment = {
     measurementId: 'G-D8VTFGW82C',
   },
   phone: '50763001488',
+  mapsApiKey: 'AIzaSyABiCiQGAfsBRtMf16a5zYx3aLWy5PrXIA',
 };
