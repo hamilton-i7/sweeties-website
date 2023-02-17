@@ -1,8 +1,23 @@
 <a
+  *ngIf="internal"
   [routerLink]="link"
   class="link-filled"
   [ngClass]="darkVariant ? 'link-filled--dark' : 'link-filled--light'"
 >
+  <ng-container *ngTemplateOutlet="linkContent"></ng-container>
+</a>
+
+<a
+  *ngIf="!internal"
+  [href]="link"
+  target="_blank"
+  class="link-filled"
+  [ngClass]="darkVariant ? 'link-filled--dark' : 'link-filled--light'"
+>
+  <ng-container *ngTemplateOutlet="linkContent"></ng-container>
+</a>
+
+<ng-template #linkContent>
   <ng-content select="[label]"></ng-content>
   <ng-content select="[icon]"></ng-content>
-</a>
+</ng-template>

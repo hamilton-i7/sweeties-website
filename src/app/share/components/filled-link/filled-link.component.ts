@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./filled-link.component.scss'],
 })
 export class FilledLinkComponent {
-  @Input() link: string = '';
-  @Input() newTab = false;
+  @Input() internal = true;
+  @Input() link = '';
   @Input() darkVariant = false;
 }
