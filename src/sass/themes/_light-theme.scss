@@ -376,3 +376,15 @@ app-hero-buy {
     }
   }
 }
+
+app-location {
+  & .location {
+    &__map {
+      border: solid theme-get("outline");
+      border-bottom-width: 0;
+      border-left-width: 0.2rem;
+      border-right-width: 0;
+      border-top-width: 0.2rem;
+    }
+  }
+}
