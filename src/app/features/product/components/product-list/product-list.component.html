@@ -13,7 +13,6 @@
         <app-product-card
           [product]="product"
           [isNew]="isNewProduct(product)"
-          [imgSrc]="product.imgUrl"
           [variant]="(productCardVariant$ | async) ?? productCardDefault"
         ></app-product-card>
       </li>

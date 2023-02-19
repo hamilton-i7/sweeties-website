@@ -1,3 +1,5 @@
+/// <reference types="@types/google.maps" />
+
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';

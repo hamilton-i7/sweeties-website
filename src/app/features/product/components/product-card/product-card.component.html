@@ -1,7 +1,7 @@
 <article class="product" [ngClass]="variant" *ngIf="product">
   <figure class="product__img-container">
     <div class="product__chip" *ngIf="isNew">Nuevo</div>
-    <img [src]="imgSrc" alt="{{ product.name }}" class="product__img" />
+    <img [src]="product.imgUrl" alt="{{ product.name }}" class="product__img" />
   </figure>
   <div class="product__details">
     <h3 class="product__name">{{ product.name }}</h3>

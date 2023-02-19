@@ -8,7 +8,6 @@ import { IProduct } from '../../../../core/models/product';
 })
 export class ProductCardComponent {
   @Input() product?: IProduct;
-  @Input() imgSrc = '';
   @Input() isNew = false;
   @Input() variant = CardVariant.FILLED;
 }
