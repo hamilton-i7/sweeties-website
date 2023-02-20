@@ -52,7 +52,7 @@ export class ProductListComponent implements OnInit {
     }
   }
 
-  private setupProductsMap(products: IProduct[]): void {
+  setupProductsMap(products: IProduct[]): void {
     const result: Map<string, IProduct[]> = new Map([
       [CATEGORY_NEW, []],
       [CATEGORY_RECOMMENDED, []],
