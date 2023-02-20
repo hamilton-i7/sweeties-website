@@ -5,6 +5,7 @@ import { HeroProductComponent } from './components/hero-product/hero-product.com
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { RouterModule } from '@angular/router';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { RouterModule } from '@angular/router';
     ProductCardComponent,
     ProductListComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NgxSkeletonLoaderModule],
   exports: [ProductComponent],
 })
 export class ProductModule {}

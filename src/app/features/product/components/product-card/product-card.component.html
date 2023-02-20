@@ -13,3 +13,33 @@
     </p>
   </div>
 </article>
+
+<article *ngIf="loading" class="product__placeholder" [ngClass]="variant">
+  <figure class="product__img-container">
+    <ngx-skeleton-loader
+      [theme]="{
+        width: '14rem',
+        height: '20rem',
+        'margin-bottom': 0,
+        background: '#d0d0d5'
+      }"
+    ></ngx-skeleton-loader>
+  </figure>
+  <div class="product__details">
+    <div class="product__name">
+      <ngx-skeleton-loader
+        [theme]="{ width: '10rem', background: '#d0d0d5' }"
+      ></ngx-skeleton-loader>
+    </div>
+    <div class="product__description">
+      <ngx-skeleton-loader
+        [theme]="{ width: '100%', background: '#d0d0d5' }"
+      ></ngx-skeleton-loader>
+    </div>
+    <div class="product__price">
+      <ngx-skeleton-loader
+        [theme]="{ width: '5rem', 'margin-bottom': 0, background: '#d0d0d5' }"
+      ></ngx-skeleton-loader>
+    </div>
+  </div>
+</article>

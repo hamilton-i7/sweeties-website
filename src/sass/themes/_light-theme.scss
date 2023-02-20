@@ -331,11 +331,13 @@ app-hero-product {
 
 app-product-card {
   & .product {
-    &.filled {
+    &.filled,
+    &__placeholder.filled {
       background-color: theme-get("surface-variant");
     }
 
-    &.outlined {
+    &.outlined,
+    &__placeholder.outlined {
       background-color: theme-get("surface");
       border: 0.1rem solid theme-get("outline");
     }
@@ -351,6 +353,10 @@ app-product-card {
     &__chip {
       background-color: theme-get("secondary-container");
       color: theme-get("on-secondary-container");
+    }
+
+    &__placeholder.outlined &__details {
+      background-color: theme-get("surface");
     }
 
     &__name {

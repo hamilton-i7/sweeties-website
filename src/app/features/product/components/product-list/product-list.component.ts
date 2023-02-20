@@ -21,6 +21,9 @@ export class ProductListComponent implements OnInit {
   productCardVariant$ = new BehaviorSubject<CardVariant>(CardVariant.FILLED);
   productCardDefault = CardVariant.FILLED;
 
+  loading$ = new BehaviorSubject(false);
+  initialCategories = ['shakes', 'smoothies', 'desserts'];
+
   constructor(
     private productService: ProductService,
     private breakpointObserver: BreakpointObserver
@@ -32,9 +35,18 @@ export class ProductListComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.productService
-      .getProducts()
-      .subscribe((products) => this.setupProductsMap(products));
+    this.productService.getProducts().subscribe((state) => {
+      if (state.loading) {
+        this.loading$.next(true);
+        return;
+      }
+
+      if (state.value) {
+        this.setupProductsMap(state.value);
+        this.loading$.next(false);
+        return;
+      }
+    });
   }
 
   getSectionId(key: string): string {

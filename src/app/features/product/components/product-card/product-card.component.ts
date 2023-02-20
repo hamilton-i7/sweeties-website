@@ -10,6 +10,7 @@ export class ProductCardComponent {
   @Input() product?: IProduct;
   @Input() isNew = false;
   @Input() variant = CardVariant.FILLED;
+  @Input() loading = false;
 }
 
 export enum CardVariant {

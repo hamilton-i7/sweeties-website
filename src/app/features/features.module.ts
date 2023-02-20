@@ -6,13 +6,7 @@ import { ProductModule } from './product/product.module';
 import { BuyModule } from './buy/buy.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    LayoutModule,
-    HomeModule,
-    ProductModule,
-    BuyModule,
-  ],
+  imports: [CommonModule, LayoutModule, HomeModule, ProductModule, BuyModule],
   exports: [LayoutModule, HomeModule, ProductModule, BuyModule],
 })
 export class FeaturesModule {}

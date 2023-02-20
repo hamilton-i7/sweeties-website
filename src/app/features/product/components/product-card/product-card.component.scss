@@ -1,12 +1,14 @@
 @use "../../../../../sass/base/typography";
 
-.product {
+.product,
+.product__placeholder {
   align-items: stretch;
   display: flex;
   height: 17.5rem;
   width: var(--product-card-width);
 
-  &.outlined {
+  &.outlined,
+  &__placeholder.outlined {
     border-radius: 1.2rem;
     overflow: hidden;
   }
