@@ -394,3 +394,43 @@ app-location {
     }
   }
 }
+
+app-not-found {
+  & .not-found {
+    &__description {
+      color: theme-get("on-surface-variant");
+    }
+
+    &__socials-message {
+      color: theme-get("outline");
+    }
+  }
+
+  & app-social-buttons .socials__list-item a {
+    &:focus .state-layer {
+      border-color: theme-get("primary");
+    }
+
+    &:focus svg {
+      fill: theme-get("primary");
+    }
+
+    &:hover .state-layer,
+    &:active .state-layer {
+      background-color: theme-get("on-surface-variant");
+    }
+
+    &:hover svg,
+    &:active svg {
+      fill: theme-get("background");
+    }
+
+    & .state-layer {
+      border-color: theme-get("on-surface-variant");
+    }
+
+    & svg {
+      fill: theme-get("on-surface-variant");
+    }
+  }
+}

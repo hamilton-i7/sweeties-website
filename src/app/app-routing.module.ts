@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BuyComponent } from './features/buy/buy.component';
 import { HomeComponent } from './features/home/home.component';
+import { NotFoundComponent } from './features/not-found/not-found.component';
 import { ProductComponent } from './features/product/product.component';
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
     component: BuyComponent,
     title: 'Sweeties672 | Comprar ahora',
   },
+  { path: '**', component: NotFoundComponent, title: 'Sweeties672' },
 ];
 
 @NgModule({

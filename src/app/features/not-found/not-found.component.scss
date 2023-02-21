@@ -1,0 +1,145 @@
+@use "../../../sass/abstracts/mixins" as m;
+@use "../../../sass/base/typography";
+
+.not-found {
+  align-items: center;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1.6rem;
+  min-height: 100vh;
+  padding: calc(var(--toolbar-height) + 2.4rem) 1.6rem 3.2rem;
+  position: relative;
+  overflow: hidden;
+
+  @include m.for-size("desktop-up") {
+    align-items: stretch;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    padding-top: calc(var(--toolbar-height) + 2.4rem);
+    padding-left: clamp(16rem, 15%, 40rem);
+  }
+
+  @include m.for-size("custom-up", 2500px) {
+    justify-content: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    max-width: 50rem;
+    width: 100%;
+  }
+
+  &__text-container {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: center;
+
+    @include m.for-size("desktop-up") {
+      align-items: flex-start;
+      justify-content: center;
+      text-align: left;
+    }
+  }
+
+  &__title {
+    @extend %display-l;
+    margin-bottom: 0.8rem;
+  }
+
+  &__description {
+    @extend %body-l;
+    margin-bottom: 3.2rem;
+
+    @include m.for-size("desktop-up") {
+      margin-bottom: 4.8rem;
+    }
+  }
+
+  &__img-container {
+    align-items: flex-end;
+    display: flex;
+    justify-content: center;
+    max-width: 40rem;
+    width: 100%;
+
+    @include m.for-size("desktop-up") {
+      max-width: 75rem;
+      position: relative;
+    }
+
+    @include m.for-size("custom-up", 2500px) {
+      max-width: clamp(75rem, 100%, 100rem);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    z-index: 2;
+
+    @include m.for-size("desktop-up") {
+      bottom: -3rem;
+      position: absolute;
+      right: 0;
+    }
+
+    @include m.for-size("high-res-up") {
+      bottom: -6rem;
+    }
+  }
+
+  &__socials-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 2.4rem;
+
+    @include m.for-size("desktop-up") {
+      flex-direction: row;
+      gap: 2.4rem;
+      margin-bottom: 3.2rem;
+    }
+  }
+
+  &__socials-message {
+    @extend %body-l;
+  }
+}
+
+img.blob {
+  position: absolute;
+  top: -3.5rem;
+  right: -7rem;
+  width: 24rem;
+  z-index: 1;
+
+  @include m.for-size("small-up") {
+    height: 50rem;
+    top: -6rem;
+    right: -22rem;
+    width: 50rem;
+  }
+
+  @include m.for-size("custom-up", 1024px) {
+    height: 60rem;
+    width: 60rem;
+  }
+
+  @include m.for-size("large-up") {
+    top: -20rem;
+    right: -17rem;
+    rotate: -45deg;
+  }
+
+  @include m.for-size("desktop-up") {
+    height: 80rem;
+    top: -24rem;
+    right: -25rem;
+    rotate: -22deg;
+    width: 80rem;
+  }
+}
