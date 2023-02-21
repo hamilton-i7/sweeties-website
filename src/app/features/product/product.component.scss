@@ -11,11 +11,16 @@
 }
 
 img.blob {
+  bottom: -8rem;
+  position: absolute;
+  right: -5rem;
   width: 24rem;
   z-index: 1;
 
   @include m.for-size("small-up") {
+    bottom: -18rem;
     height: 50rem;
+    right: -15rem;
     width: 50rem;
   }
 
@@ -25,48 +30,51 @@ img.blob {
   }
 
   @include m.for-size("desktop-up") {
+    bottom: -15rem;
     height: 80rem;
+    right: -17rem;
+    rotate: 288deg;
     width: 80rem;
   }
 }
 
-img:first-of-type.blob {
-  position: absolute;
-  left: -5rem;
-  top: 32%;
+// img:first-of-type.blob {
+//   position: absolute;
+//   left: -5rem;
+//   top: 32%;
 
-  @include m.for-size("small-up") {
-    left: -12rem;
-  }
+//   @include m.for-size("small-up") {
+//     left: -12rem;
+//   }
 
-  @include m.for-size("medium-up") {
-    top: 35%;
-  }
+//   @include m.for-size("medium-up") {
+//     top: 35%;
+//   }
 
-  @include m.for-size("large-up") {
-    left: -17rem;
-  }
+//   @include m.for-size("large-up") {
+//     left: -17rem;
+//   }
 
-  @include m.for-size("desktop-up") {
-    left: -35rem;
-    top: 40%;
-    rotate: 218deg;
-  }
-}
+//   @include m.for-size("desktop-up") {
+//     left: -35rem;
+//     top: 40%;
+//     rotate: 218deg;
+//   }
+// }
 
-img:last-of-type.blob {
-  position: absolute;
-  bottom: -8rem;
-  right: -5rem;
+// img:last-of-type.blob {
+//   position: absolute;
+//   bottom: -8rem;
+//   right: -5rem;
 
-  @include m.for-size("small-up") {
-    bottom: -18rem;
-    right: -15rem;
-  }
+//   @include m.for-size("small-up") {
+//     bottom: -18rem;
+//     right: -15rem;
+//   }
 
-  @include m.for-size("desktop-up") {
-    bottom: -15rem;
-    right: -17rem;
-    rotate: 288deg;
-  }
-}
+//   @include m.for-size("desktop-up") {
+//     bottom: -15rem;
+//     right: -17rem;
+//     rotate: 288deg;
+//   }
+// }

@@ -6,6 +6,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { RouterModule } from '@angular/router';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { ProductLoadingComponent } from './components/product-loading/product-loading.component';
+import { ProductErrorComponent } from './components/product-error/product-error.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     HeroProductComponent,
     ProductCardComponent,
     ProductListComponent,
+    ProductLoadingComponent,
+    ProductErrorComponent,
   ],
   imports: [CommonModule, RouterModule, NgxSkeletonLoaderModule],
   exports: [ProductComponent],

@@ -21,7 +21,9 @@ describe('ProductListComponent', () => {
 
   beforeEach(async () => {
     productServiceSpy = jasmine.createSpyObj('ProductService', ['getProducts']);
-    productServiceSpy.getProducts.and.returnValue(of(dummyProducts));
+    productServiceSpy.getProducts.and.returnValue(
+      of({ loading: false, value: dummyProducts })
+    );
 
     await TestBed.configureTestingModule({
       declarations: [ProductListComponent, ProductCardComponent],

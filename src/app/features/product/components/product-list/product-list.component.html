@@ -1,48 +1,26 @@
-<main
-  class="product-list"
-  *ngIf="(loading$ | async) === false; else loadingBlock"
->
-  <section
-    class="category"
-    [ngClass]="{ hide: !item.value.length }"
-    *ngFor="let item of productsMap$ | async | keyvalue : setupKeysOrder"
-    [id]="getSectionId(item.key)"
-  >
-    <h2 class="category__name" *ngIf="item.value.length">
-      {{ item.key | titlecase }}
-    </h2>
-    <ul class="category__products" *ngIf="item.value.length">
-      <li *ngFor="let product of item.value">
-        <app-product-card
-          [product]="product"
-          [isNew]="isNewProduct(product)"
-          [variant]="(productCardVariant$ | async) ?? productCardDefault"
-        ></app-product-card>
-      </li>
-    </ul>
-  </section>
-</main>
+<ng-container *ngIf="state$ | async as data">
+  <app-product-loading *ngIf="data.loading"></app-product-loading>
+  <app-product-error *ngIf="data.error"></app-product-error>
 
-<ng-template #loadingBlock>
-  <main class="product-list">
+  <main class="product-list" *ngIf="data.value?.length">
     <section
       class="category"
-      [id]="category"
-      *ngFor="let category of initialCategories"
+      [ngClass]="{ hide: !item.value.length }"
+      *ngFor="let item of productsMap$ | async | keyvalue : setupKeysOrder"
+      [id]="getSectionId(item.key)"
     >
-      <div class="category__name">
-        <ngx-skeleton-loader
-          [theme]="{ height: '5rem', width: '25rem', background: '#d0d0d5' }"
-        ></ngx-skeleton-loader>
-      </div>
-      <ul class="category__products">
-        <li *ngFor="let item of [1, 2, 3, 4]">
+      <h2 class="category__name" *ngIf="item.value.length">
+        {{ item.key | titlecase }}
+      </h2>
+      <ul class="category__products" *ngIf="item.value.length">
+        <li *ngFor="let product of item.value">
           <app-product-card
-            [loading]="true"
+            [product]="product"
+            [isNew]="isNewProduct(product)"
             [variant]="(productCardVariant$ | async) ?? productCardDefault"
           ></app-product-card>
         </li>
       </ul>
     </section>
   </main>
-</ng-template>
+</ng-container>

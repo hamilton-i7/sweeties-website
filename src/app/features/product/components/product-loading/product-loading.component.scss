@@ -1,0 +1,96 @@
+@use "../../../../../sass/abstracts/mixins" as m;
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6.4rem;
+  row-gap: 3.2rem;
+
+  @include m.for-size("small-up") {
+    align-items: center;
+    margin-bottom: 8rem;
+    row-gap: 7.2rem;
+  }
+
+  @include m.for-size("desktop-up") {
+    margin-bottom: 12rem;
+    row-gap: 9.6rem;
+  }
+}
+
+.category {
+  --grid-gap: 2.4rem;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include m.for-size("desktop-up") {
+    --grid-gap: 3.2rem;
+  }
+
+  @include m.for-size("high-res-up") {
+    --grid-gap: 4rem;
+  }
+
+  &__name {
+    margin-bottom: 1.6rem;
+    padding-left: 1.6rem;
+
+    @include m.for-size("small-up") {
+      margin-bottom: 2.4rem;
+      padding-left: calc((100% - var(--product-card-width)) / 2);
+    }
+
+    @include m.for-size("tablet-up") {
+      margin-bottom: 3.2rem;
+    }
+
+    @include m.for-size("medium-up") {
+      --grid-width: calc((var(--product-card-width) * 2) + var(--grid-gap));
+      padding-left: calc((100% - var(--grid-width)) / 2);
+    }
+
+    @include m.for-size("desktop-up") {
+      --grid-width: calc(
+        (var(--product-card-width) * 3) + (var(--grid-gap) * 2)
+      );
+      padding-left: calc((100% - var(--grid-width)) / 2);
+    }
+
+    @include m.for-size("high-res-up") {
+      --grid-width: calc(
+        (var(--product-card-width) * 4) + (var(--grid-gap) * 3)
+      );
+      padding-left: calc((100% - var(--grid-width)) / 2);
+    }
+  }
+
+  &__products {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    row-gap: 0.4rem;
+    width: 100%;
+
+    @include m.for-size("small-up") {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--grid-gap);
+      width: fit-content;
+    }
+
+    @include m.for-size("medium-up") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m.for-size("desktop-up") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include m.for-size("high-res-up") {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

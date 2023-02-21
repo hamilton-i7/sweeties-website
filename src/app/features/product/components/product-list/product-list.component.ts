@@ -10,6 +10,7 @@ import { IProduct } from '../../../../core/models/product';
 import { Category } from '../../../../core/models/category';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { CardVariant } from '../product-card/product-card.component';
+import { RequestState } from '../../../../core/utils/request';
 
 @Component({
   selector: 'app-product-list',
@@ -21,8 +22,7 @@ export class ProductListComponent implements OnInit {
   productCardVariant$ = new BehaviorSubject<CardVariant>(CardVariant.FILLED);
   productCardDefault = CardVariant.FILLED;
 
-  loading$ = new BehaviorSubject(false);
-  initialCategories = ['shakes', 'smoothies', 'desserts'];
+  state$ = new BehaviorSubject<RequestState<IProduct[]>>({ loading: false });
 
   constructor(
     private productService: ProductService,
@@ -36,16 +36,10 @@ export class ProductListComponent implements OnInit {
 
   getProducts(): void {
     this.productService.getProducts().subscribe((state) => {
-      if (state.loading) {
-        this.loading$.next(true);
-        return;
-      }
+      this.state$.next(state);
 
-      if (state.value) {
-        this.setupProductsMap(state.value);
-        this.loading$.next(false);
-        return;
-      }
+      if (!state.value) return;
+      this.setupProductsMap(state.value);
     });
   }
 

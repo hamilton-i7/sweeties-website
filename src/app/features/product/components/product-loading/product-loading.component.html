@@ -1,0 +1,21 @@
+<main class="product-list">
+  <section
+    class="category"
+    [id]="category"
+    *ngFor="let category of initialCategories"
+  >
+    <div class="category__name">
+      <ngx-skeleton-loader
+        [theme]="{ height: '5rem', width: '25rem', background: '#d0d0d5' }"
+      ></ngx-skeleton-loader>
+    </div>
+    <ul class="category__products">
+      <li *ngFor="let item of [1, 2, 3, 4]">
+        <app-product-card
+          [loading]="true"
+          [variant]="(productCardVariant$ | async) ?? productCardDefault"
+        ></app-product-card>
+      </li>
+    </ul>
+  </section>
+</main>
